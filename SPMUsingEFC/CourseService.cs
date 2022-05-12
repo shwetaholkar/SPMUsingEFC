@@ -74,6 +74,15 @@ namespace SPMUsingEFC
             Console.WriteLine("Enter id to be updated ");
             int courseId = int.Parse(Console.ReadLine());
 
+            Console.WriteLine("Enter Course Code = ");
+            int courCode1 = int.Parse(Console.ReadLine());
+
+            Console.WriteLine("Enter Course Title = ");
+            var courseTitle1 = Console.ReadLine();
+
+            Console.WriteLine("Enter Course Description = ");
+            var description1 = Console.ReadLine();
+
             using var context = new StudentPerformanceManagementContext();
 
             var course = context.Courses.FirstOrDefault(x => x.courseID == courseId);
@@ -83,9 +92,9 @@ namespace SPMUsingEFC
                 return;
             }
 
-            course.courseCode = course.courseCode + 66 ;
-            course.courseTitle = course.courseTitle + "ghj";
-            course.description = course.description + "ghjgh";
+            course.courseCode = courCode1;
+            course.courseTitle = courseTitle1;
+            course.description = description1;
 
             context.Courses.Update(course);
             context.SaveChanges();

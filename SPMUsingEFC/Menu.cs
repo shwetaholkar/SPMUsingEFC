@@ -43,7 +43,7 @@ namespace SPMUsingEFC
                 switch (num)
                 {
                     case 1:
-                       
+                        studentService.Add();
                         break;
 
                     case 2:
@@ -51,23 +51,23 @@ namespace SPMUsingEFC
                         break;
 
                     case 3:
-                        
+                        subjectService.Add();
                         break;
 
                     case 4:
-                        
+                        markService.Add();
                         break;
 
                     case 5:
-                        
+                        studentService.Update();
                         break;
 
                     case 6:
-                        
+                        courseService.Update();
                         break;
 
                     case 7:
-                        
+                        subjectService.Update();
                         break;
 
                     case 8:
