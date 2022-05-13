@@ -54,16 +54,19 @@ namespace SPMUsingEFC
         {
             Console.WriteLine("Enter course Id to be deleted ");
             int courseId=int.Parse(Console.ReadLine());
-
             using var context = new StudentPerformanceManagementContext();
-           
-            var course = context.Courses.FirstOrDefault(x => x.courseID == courseId);
-            if (course == null)
-            {
-                Console.WriteLine($"Course with Id = {courseId} not Found");
-                return;
-            }
 
+            var student = context.Students.FirstOrDefault(x => x.courseID == courseId);
+            var subject = context.Subjects.FirstOrDefault(x => x.courseID == courseId);
+             var course = context.Courses.FirstOrDefault(x => x.courseID == courseId);
+
+            //if (course == null)
+            //{
+            //    Console.WriteLine($"Course with Id = {courseId} not Found");
+            //    return;
+            //}
+            context.Students.Remove(student);
+            context.Subjects.Remove(subject);
             context.Courses.Remove(course);
             context.SaveChanges();
             Console.WriteLine();
@@ -104,6 +107,12 @@ namespace SPMUsingEFC
     }
 }
 
+//delete from[student].[Student]
+//where[courseID] = @courseId
 
+//delete from[course].[Subjects]
+//where[courseID] = @courseId
 
+//delete from[course].[Course]
+//where[courseID] = @courseId
 

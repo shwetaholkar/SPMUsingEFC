@@ -8,8 +8,6 @@ namespace SPMUsingEFC
 {
     public class Menu
     {
-
-
         public void Start()
         {
             CourseService courseService = new CourseService();
@@ -21,29 +19,42 @@ namespace SPMUsingEFC
             do
             {
                 Console.WriteLine();
-                Console.WriteLine(" 1. Add Student ");
-                Console.WriteLine(" 2. Add course ");
-                Console.WriteLine(" 3. Add subject ");
-                Console.WriteLine(" 4. Enter marks of student ");
-                Console.WriteLine(" 5. Edit Student data");
-                Console.WriteLine(" 6. Edit course ");
-                Console.WriteLine(" 7. Edit subject ");
-                Console.WriteLine(" 8. Delete Student ");
-                Console.WriteLine(" 9. Delete Subject ");
-                Console.WriteLine(" 10. Delete Course ");
-                Console.WriteLine(" 11. Delete marks ");
-                Console.WriteLine(" 12. List all students with details of course, subject, and total marks ");
-                Console.WriteLine(" 13. Display subject wise marks for a student ");
-                Console.WriteLine(" 14. List course wise average marks ");
-                Console.WriteLine(" 15. List course wise max marks ");
-                Console.WriteLine(" 16. List course wise topper ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("                   Course                ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("1. Display all Course ");
+                Console.WriteLine("2. Add Course ");
+                Console.WriteLine("3. Update Course ");
+                Console.WriteLine("4. Delete Course ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("                   Student                ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("5. Display all Student ");
+                Console.WriteLine("6. Add Student ");
+                Console.WriteLine("7. Update Student ");
+                Console.WriteLine("8. Delete Student ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("                   Subject                ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("9. Display all Subject ");
+                Console.WriteLine("10. Add Subject ");
+                Console.WriteLine("11. Update Subject ");
+                Console.WriteLine("12. Delete Subject ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("                   Mark                  ");
+                Console.WriteLine("-----------------------------------------");
+                Console.WriteLine("13. Display all Marks ");
+                Console.WriteLine("14. Add Marks ");
+                Console.WriteLine("15. Update Marks ");
+                Console.WriteLine("16. Delete Marks ");
 
-                Console.WriteLine(" Enter your choice : ");
+                Console.WriteLine();
+                Console.WriteLine("Enter your choice : ");
                 num = int.Parse(Console.ReadLine());
                 switch (num)
                 {
                     case 1:
-                        studentService.Add();
+                        courseService.Select();
                         break;
 
                     case 2:
@@ -51,59 +62,59 @@ namespace SPMUsingEFC
                         break;
 
                     case 3:
-                        subjectService.Add();
-                        break;
-
-                    case 4:
-                        markService.Add();
-                        break;
-
-                    case 5:
-                        studentService.Update();
-                        break;
-
-                    case 6:
                         courseService.Update();
                         break;
 
+                    case 4:
+                        courseService.Delete();
+                        break;
+
+                    case 5:
+                        studentService.Select();
+                        break;
+
+                    case 6:
+                        studentService.Add();
+                        break;
+
                     case 7:
-                        subjectService.Update();
+                        studentService.Update();
                         break;
 
                     case 8:
-                        
+                        studentService.Delete();
                         break;
 
                     case 9:
-                        
+                        subjectService.Select();
                         break;
 
                     case 10:
-                       courseService.Delete();
+                        subjectService.Add();
                         break;
 
                     case 11:
-                       
+                        subjectService.Update();
                         break;
 
                     case 12:
-                        
+                        subjectService.Delete();
                         break;
 
                     case 13:
-                        
+                        markService.Select();
                         break;
 
                     case 14:
-                        
+                        markService.Add();
                         break;
 
                     case 15:
-                        
+                        markService.Update();
                         break;
 
                     case 16:
-                        
+                        markService.Delete();
                         break;
 
                     default:
@@ -112,9 +123,6 @@ namespace SPMUsingEFC
                 }
 
             } while (num > 0);
-
         }
-
-
     }
 }

@@ -1,11 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SPMUsingEFC.DataAccess;
 using SPMUsingEFC.DataAccess.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SPMUsingEFC
 {
@@ -94,7 +89,22 @@ namespace SPMUsingEFC
         }
         public void Delete()
         {
+            Console.WriteLine("Enter subject Id to be deleted ");
+            int subjectId = int.Parse(Console.ReadLine());
 
+            using var context = new StudentPerformanceManagementContext();
+
+            var subject = context.Subjects.FirstOrDefault(x => x.subjectID == subjectId);
+            if (subject == null)
+            {
+                Console.WriteLine($"Subject with Id = {subjectId} not Found");
+                return;
+            }
+
+            context.Subjects.Remove(subject);
+            context.SaveChanges();
+            Console.WriteLine();
+            Console.WriteLine("Record deleted..!");
         }
     }
 }

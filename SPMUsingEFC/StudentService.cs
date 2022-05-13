@@ -96,7 +96,22 @@ namespace SPMUsingEFC
         }
         public void Delete()
         {
+            Console.WriteLine("Enter student Id to be deleted ");
+            int studentId = int.Parse(Console.ReadLine());
 
+            using var context = new StudentPerformanceManagementContext();
+
+            var student = context.Students.FirstOrDefault(x => x.studentID == studentId);
+            if (student == null)
+            {
+                Console.WriteLine($"Student with Id = {studentId} not Found");
+                return;
+            }
+
+            context.Students.Remove(student);
+            context.SaveChanges();
+            Console.WriteLine();
+            Console.WriteLine("Record deleted..!");
         }
 
     }

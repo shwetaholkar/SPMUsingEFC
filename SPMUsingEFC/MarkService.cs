@@ -75,5 +75,25 @@ namespace SPMUsingEFC
             Console.WriteLine();
             Console.WriteLine("Record updated..!");
         }
+        public void Delete()
+        {
+
+            Console.WriteLine("Enter marks Id to be deleted ");
+            int markId = int.Parse(Console.ReadLine());
+
+            using var context = new StudentPerformanceManagementContext();
+
+            var mark = context.Marks.FirstOrDefault(x => x.MarksID == markId);
+            if (mark == null)
+            {
+                Console.WriteLine($"Mark with Id = {markId} not Found");
+                return;
+            }
+
+            context.Marks.Remove(mark);
+            context.SaveChanges();
+            Console.WriteLine();
+            Console.WriteLine("Record deleted..!");
+        }
     }
 }
